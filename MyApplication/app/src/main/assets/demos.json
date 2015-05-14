@@ -1,0 +1,12 @@
+[
+{"name":"com.tencent.example.location.SdkInfoActivity", "label":"SDK状态信息"},
+{"name":"com.tencent.example.location.DemoStatusActivity", "label":"监听状态变化"},
+{"name":"com.tencent.example.location.DemoIntervalActivity", "label":"定位周期"},
+{"name":"com.tencent.example.location.DemoLevelActivity", "label":"定位Level"},
+{"name":"com.tencent.example.location.DemoThreadActivity", "label":"新线程中回调"},
+{"name":"com.tencent.example.location.DemoThreadActivity2", "label":"新线程中定位"},
+{"name":"com.tencent.example.location.DemoMapActivity", "label":"我的位置"},
+{"name":"com.tencent.example.location.DemoDirectionActivity", "label":"方向"},
+{"name":"com.tencent.example.location.DemoWgs84Activity", "label":"WGS-84坐标"},
+{"name":"com.tencent.example.location.fence.DemoGeofenceEditorActivty", "label":"地理围栏"}
+]

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.tencent.example.location">
+
+    <!-- 最低要求 android 2.2 -->
+    <uses-sdk
+        android:minSdkVersion="8"
+        android:targetSdkVersion="19" />
+
+    <!-- 腾讯定位 sdk 要求的权限  (开始) -->
+    <!-- 通过GPS得到精确位置 -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <!-- 通过网络得到粗略位置 -->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <!-- 访问网络. 某些位置信息需要从网络服务器获取 -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <!-- 访问WiFi状态. 需要WiFi信息用于网络定位 -->
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <!-- 修改WiFi状态. 发起WiFi扫描, 需要WiFi信息用于网络定位 -->
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <!-- 访问网络状态, 检测网络的可用性. 需要网络运营商相关信息用于网络定位 -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <!-- 访问网络的变化, 需要某些信息用于网络定位 -->
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
+    <!-- 访问手机当前状态, 需要device id用于网络定位 -->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <!-- 腾讯定位 sdk 要求的权限 (结束) -->
+
+
+    <!-- Demo中使用了腾讯地图 sdk, 腾讯地图 sdk 还要求的以下权限 -->
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.READ_PHONE_SINTERNETWIFI_STATE" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    
+    <!-- 非必须权限, 用于记录 log -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <!-- 非必须权限, 用于 notification 振动 -->
+    <uses-permission android:name="android.permission.VIBRATE" />
+
+    <application
+        android:name="com.tencent.example.location.fence.DemoGeofenceApp"
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        <activity
+            android:name="com.tencent.example.location.DemoListActivity"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name="com.tencent.example.location.SdkInfoActivity" />
+        <activity android:name="com.tencent.example.location.DemoStatusActivity" />
+        <activity android:name="com.tencent.example.location.DemoIntervalActivity" />
+        <activity android:name="com.tencent.example.location.DemoLevelActivity" />
+        <activity android:name="com.tencent.example.location.DemoThreadActivity" />
+        <activity android:name="com.tencent.example.location.DemoThreadActivity2" />
+        <activity android:name="com.tencent.example.location.DemoMapActivity" />
+        <activity android:name="com.tencent.example.location.DemoDirectionActivity" />
+        <activity android:name="com.tencent.example.location.DemoWgs84Activity" />
+        
+        <!-- geofence -->
+        <activity android:name="com.tencent.example.location.fence.DemoGeofenceEditorActivty" />
+        <activity android:name="com.tencent.example.location.fence.DemoGeofenceEventActivity" />
+        <receiver android:name="com.tencent.example.location.fence.DemoGeofenceEventReceiver" android:exported="false">
+            <intent-filter>
+                <action android:name="com.tencent.map.geolocation.xxx"/>
+            </intent-filter>
+        </receiver>
+        <service android:name="com.tencent.example.location.fence.DemoGeofenceService" />
+
+        <!-- 您的发布产品中请不要使用这个 key !!! -->
+        <meta-data
+            android:name="TencentMapSDK"
+            android:value="EXLBZ-B7TH5-CTZIK-QNQFR-76OGO-GNFCS" />
+    </application>
+
+</manifest>

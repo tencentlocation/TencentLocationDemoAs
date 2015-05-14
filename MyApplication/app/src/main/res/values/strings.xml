@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">TencentLocationDemo</string>
+    <string name="build">build: %1$s</string>
+    <string name="version">version: %1$s</string>
+    <string name="key">key: %1$s</string>
+    <string name="gps">gps: %1$s</string>
+    <string name="wifi">wifi: %1$s %2$s</string>
+    <string name="refresh">刷新</string>
+    <string name="start_location">开始</string>
+    <string name="clear_status">清空</string>
+    <string name="stop_location">停止</string>
+    <string name="settings">设置</string>
+    <string name="my_location">我的位置</string>
+    <string name="placeholder"></string>
+    <string name="btn_my_loc">定位</string>
+    <string name="btn_add">添加</string>
+    <string name="btn_del">删除</string>
+    <string name="btn_stop">停止测试</string>
+    <string name="set_name">取个名字吧</string>
+
+</resources>
