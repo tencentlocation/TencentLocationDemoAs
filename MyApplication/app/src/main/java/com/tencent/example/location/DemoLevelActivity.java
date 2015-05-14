@@ -1,9 +1,6 @@
 package com.tencent.example.location;
 
-import java.util.List;
-
 import android.app.Activity;
-import android.app.AlertDialog;
 import android.app.AlertDialog.Builder;
 import android.content.DialogInterface;
 import android.content.DialogInterface.OnClickListener;
@@ -17,6 +14,8 @@ import com.tencent.map.geolocation.TencentLocationListener;
 import com.tencent.map.geolocation.TencentLocationManager;
 import com.tencent.map.geolocation.TencentLocationRequest;
 import com.tencent.map.geolocation.TencentPoi;
+
+import java.util.List;
 
 public class DemoLevelActivity extends Activity implements OnClickListener,
 		TencentLocationListener {

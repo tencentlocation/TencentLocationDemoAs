@@ -11,6 +11,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
+import com.tencent.example.location.fence.Utils;
 import com.tencent.map.geolocation.TencentLocation;
 import com.tencent.map.geolocation.TencentLocationListener;
 import com.tencent.map.geolocation.TencentLocationManager;
@@ -81,7 +82,7 @@ public class DemoMapActivity extends MapActivity implements
 	// ===== view listeners
 	public void myLocation(View view) {
 		if (mLocation != null) {
-			mMapView.getController().animateTo(of(mLocation));
+			mMapView.getController().animateTo(Utils.of(mLocation));
 		}
 	}
 
@@ -109,7 +110,7 @@ public class DemoMapActivity extends MapActivity implements
 
 			// 更新 location 图层
 			mLocationOverlay.setAccuracy(mLocation.getAccuracy());
-			mLocationOverlay.setGeoCoords(of(mLocation));
+			mLocationOverlay.setGeoCoords(Utils.of(mLocation));
 			mMapView.invalidate();
 		}
 	}
@@ -134,13 +135,6 @@ public class DemoMapActivity extends MapActivity implements
 		mLocationManager.removeUpdates(this);
 	}
 
-	// ====== util methods
-
-	private static GeoPoint of(TencentLocation location) {
-		GeoPoint ge = new GeoPoint((int) (location.getLatitude() * 1E6),
-				(int) (location.getLongitude() * 1E6));
-		return ge;
-	}
 }
 
 class LocationOverlay extends Overlay {

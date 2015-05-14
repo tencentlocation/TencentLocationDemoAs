@@ -55,10 +55,10 @@ public class DemoDirectionActivity extends Activity implements
 		if (error == TencentLocation.ERROR_OK) {
 			double latitude = location.getLatitude();
 			double longitude = location.getLongitude();
-			double dirction = location.getExtra().getDouble(TencentLocation.EXTRA_DIRECTION);
+			double direction = location.getExtra().getDouble(TencentLocation.EXTRA_DIRECTION);
 			// System.out.println(latitude + " " + longitude + " " + dirction);
-			mStatus.setText("纬度=" + latitude + ",经度=" + longitude + "\n方向=" + (int)dirction);
-			mView.updateDirection(dirction);
+			mStatus.setText("纬度=" + latitude + ",经度=" + longitude + "\n方向=" + (int)direction);
+			mView.updateDirection(direction);
 		} else {
 			mView.updateDirection(0);
 		}
@@ -111,8 +111,8 @@ public class DemoDirectionActivity extends Activity implements
 					super.handleMessage(msg);
 					TencentLocation location = TencentLocationManager.getInstance(context).getLastKnownLocation();
 					if (location != null) {
-						double dirction = location.getExtra().getDouble(TencentLocation.EXTRA_DIRECTION);
-						updateDirection(dirction);
+						double direction = location.getExtra().getDouble(TencentLocation.EXTRA_DIRECTION);
+						updateDirection(direction);
 					}
 				}
 			};

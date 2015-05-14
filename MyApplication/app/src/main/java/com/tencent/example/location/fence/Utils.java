@@ -9,19 +9,13 @@ import com.tencent.tencentmap.mapsdk.map.GeoPoint;
 
 public class Utils {
 	public static GeoPoint of(TencentLocation location) {
-		GeoPoint ge = new GeoPoint((int) (location.getLatitude() * 1E6),
+		return new GeoPoint((int) (location.getLatitude() * 1E6),
 				(int) (location.getLongitude() * 1E6));
-		return ge;
 	}
 
 	public static GeoPoint of(double latitude, double longitude) {
-		GeoPoint ge = new GeoPoint((int) (latitude * 1E6),
+		return new GeoPoint((int) (latitude * 1E6),
 				(int) (longitude * 1E6));
-		return ge;
-	}
-
-	public static void d(String tag, String msg) {
-		Log.i(tag, msg);
 	}
 
 	public static double fmt(double d) {

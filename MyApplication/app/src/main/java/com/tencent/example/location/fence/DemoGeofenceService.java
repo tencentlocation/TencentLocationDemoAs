@@ -117,8 +117,7 @@ public class DemoGeofenceService extends Service {
 		Intent intent = new Intent(context, DemoGeofenceEditorActivty.class);
 		intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK
 				| Intent.FLAG_ACTIVITY_CLEAR_TOP);
-		PendingIntent pi = PendingIntent.getActivity(context, 0, intent,
+		return PendingIntent.getActivity(context, 0, intent,
 				PendingIntent.FLAG_UPDATE_CURRENT);
-		return pi;
 	}
 }
