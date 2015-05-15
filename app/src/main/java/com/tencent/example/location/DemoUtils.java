@@ -9,6 +9,9 @@ import android.util.Log;
 
 import com.tencent.map.geolocation.TencentLocationManager;
 
+import java.io.Closeable;
+import java.io.IOException;
+
 /**
  * 一些工具方法.
  * 
@@ -49,4 +52,13 @@ public class DemoUtils {
 		return key;
 	}
 
+    public static void closeQuietly(Closeable closeable) {
+        if (closeable != null) {
+            try {
+                closeable.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
 }
