@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.tencent.map.geolocation.TencentLocation;
 import com.tencent.map.geolocation.TencentLocationListener;
@@ -66,9 +67,29 @@ public class DemoLoadSoActivity extends Activity implements TencentLocationListe
     }
 
     public void startLocation(View view) {
-        customLoadLibrary();
-        // 定位SDK假定 "libtencentloc.so" 已加载成功!
-        // App必须确保加载成功, 否则 requestLocationUpdates 会因为找不到JNI方法而失败
+        boolean loaded = false;
+        try {
+            // 优先使用默认加载方式
+            System.loadLibrary("tencentloc");
+            loaded = true;
+        } catch (UnsatisfiedLinkError e) {
+            Log.e(TAG, "System.loadLibrary() failed, try customLoadLibrary()");
+            try {
+                // 自定义加载作为备选方案
+                customLoadLibrary();
+                loaded = true;
+            } catch (UnsatisfiedLinkError e2) {
+                Log.e(TAG, "System.load() failed");
+            } catch (IllegalStateException e2) {
+                Log.e(TAG, "copyFromAssets() failed");
+            }
+        }
+        if (!loaded) {
+            Toast.makeText(this, "无法使用定位功能", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        // App必须确保加载so成功, 否则 requestLocationUpdates 会因为找不到JNI方法而失败!
         int error = mLocationManager.requestLocationUpdates(TencentLocationRequest.create().setInterval(3000), this);
         if (error != 0) {
             Log.e(TAG, "Location failed: error=" + error);
